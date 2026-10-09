@@ -1,0 +1,6 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Figures test</title>
+<style>body{background:#0f1115;color:#E8EAED;font:12px -apple-system,sans-serif;margin:8px}
+.g{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}.c{background:#161a20;border-radius:10px;padding:4px}.c b{display:block;padding:2px 6px}</style></head>
+<body><div class="g" id="g"></div><script src="figures.js"></script><script>
+var ids=Figures.ids.concat(['unknown_id']);ids.forEach(function(id){var c=document.createElement('div');c.className='c';c.innerHTML='<b>'+id+'</b>';var m=document.createElement('div');c.appendChild(m);document.getElementById('g').appendChild(c);Figures.mount(m,id);});
+</script></body></html>
