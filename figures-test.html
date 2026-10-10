@@ -1,6 +1,8 @@
 <!doctype html><html><head><meta charset="utf-8"><title>Figures test</title>
-<style>body{background:#0f1115;color:#E8EAED;font:12px -apple-system,sans-serif;margin:8px}
-.g{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}.c{background:#161a20;border-radius:10px;padding:4px}.c b{display:block;padding:2px 6px}</style></head>
-<body><div class="g" id="g"></div><script src="figures.js"></script><script>
-var ids=Figures.ids.concat(['unknown_id']);ids.forEach(function(id){var c=document.createElement('div');c.className='c';c.innerHTML='<b>'+id+'</b>';var m=document.createElement('div');c.appendChild(m);document.getElementById('g').appendChild(c);Figures.mount(m,id);});
+<style>body{background:#0B0B0F;color:#EDEBF5;font:12px -apple-system,sans-serif;margin:8px}
+h2{font-size:13px;margin:10px 4px 4px}.g{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.c{border-radius:14px;padding:4px}.c b{display:block;padding:2px 6px}.p{background:#A45CFF;color:#0B0B0F}.d{background:#0B0B0F;border:1px solid #2a2833}</style></head>
+<body><h2>purple stage</h2><div class="g" id="gp"></div><h2>dark stage</h2><div class="g" id="gd"></div><script src="figures.js"></script><script>
+var ids=Figures.ids.concat(['unknown_id']);
+[['gp','p','purple'],['gd','d','dark']].forEach(function(s){ids.forEach(function(id){var c=document.createElement('div');c.className='c '+s[1];c.innerHTML='<b>'+id+'</b>';var m=document.createElement('div');c.appendChild(m);document.getElementById(s[0]).appendChild(c);Figures.mount(m,id,{stage:s[2]});});});
 </script></body></html>

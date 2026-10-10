@@ -3,57 +3,37 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0f1115">
-<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#A45CFF">
+<meta name="color-scheme" content="light">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Gym Plan">
-<title>Gym Plan</title>
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Gym Buddy">
+<title>My Gym Buddy</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon-180.png">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
 <div id="app">
   <section class="screen active" id="home"><div class="scroll" id="home-scroll"></div></section>
-
-  <section class="screen" id="workout">
-    <header class="w-top">
-      <button class="icon-btn" data-act="exit" aria-label="Back to today">&#8249;</button>
-      <div class="w-timer">
-        <div class="w-timer-row"><b id="w-elapsed">0:00</b><span class="muted">/ 60:00</span><span class="w-pct" id="w-pct">0%</span></div>
-        <div class="bar"><i id="w-bar"></i></div>
-      </div>
-      <button class="pill-btn" data-act="finish">Finish</button>
-    </header>
-    <div class="scroll w-scroll" id="w-scroll">
-      <div class="w-stage">
-        <div class="glow"></div>
-        <div class="w-fig" id="w-fig"></div>
-        <div class="w-block" id="w-block"></div>
-        <div class="burst-layer" id="burst"></div>
-      </div>
-      <div id="w-body"></div>
-    </div>
-    <footer class="w-actions" id="w-actions"></footer>
-    <div class="overlay" id="overlay" hidden></div>
+  <section class="screen" id="list"><div class="scroll" id="list-scroll"></div><footer class="dock" id="list-dock"></footer></section>
+  <section class="screen" id="player">
+    <header class="p-top" id="p-top"></header>
+    <div class="p-viewport" id="p-viewport"></div>
+    <footer class="dock p-dock" id="p-dock"></footer>
   </section>
-
-  <section class="screen" id="finish"><div class="scroll" id="finish-scroll"></div><div class="confetti" id="confetti" aria-hidden="true"></div></section>
-
-  <section class="screen" id="progress"><div class="scroll" id="progress-scroll"></div></section>
-
-  <nav class="tabbar" id="tabbar">
-    <button class="tab active" data-act="tab" data-tab="home"><span>&#127947;&#65039;</span>Today</button>
-    <button class="tab" data-act="tab" data-tab="progress"><span>&#128200;</span>Progress</button>
-  </nav>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <section class="screen" id="done"><div class="confetti" id="confetti" aria-hidden="true"></div><div class="scroll" id="done-scroll"></div></section>
+  <section class="screen" id="library"><div class="scroll" id="library-scroll"></div></section>
 </div>
-<script src="plan.js"></script>
-<script src="figures.js"></script>
-<script src="dev-stub.js"></script>
-<script src="app.js"></script>
+<script src="plan.js?v=5"></script>
+<script src="figures.js?v=5"></script>
+<script src="app.js?v=5"></script>
+<script>
+if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
+  navigator.serviceWorker.register('sw.js').catch(function () {});
+}
+</script>
 </body>
 </html>
